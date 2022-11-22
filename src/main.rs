@@ -21,13 +21,13 @@ fn main() {
         )
         .build().unwrap();
 
-    let mut hue: f64 = 0;
+    let mut hue: f64 = 0.0;
 
     loop {
         let leds = controller.leds_mut(0);
 
         hue = hue + 0.01;
-        if hue > 1 { hue = 0; }
+        if hue > 1.0 { hue = 0.0; }
 
         controller.render().unwrap();   
     }
