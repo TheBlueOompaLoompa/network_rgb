@@ -32,8 +32,8 @@ fn main() {
         hue = hue + 0.01;
         if hue > 1.0 { hue = 0.0; }
 
-        let color_rgba = palette::RgbHue::from_degrees(hue);
-        println!("{:?}", color_rgba);
+        let color_rgba = palette::LinSrgba::new(255u8, 0u8, 0u8, 255u8);
+        println!("{},{},{}", color_rgba.red, color_rgba.green, color_rgba.blue);
 
         //controller.render().unwrap();
     }
