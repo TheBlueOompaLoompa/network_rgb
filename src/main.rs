@@ -10,7 +10,7 @@ fn main() {
         led_count = 10;
     }
 
-    let mut controller = ControllerBuilder::new()
+    /*let mut controller = ControllerBuilder::new()
         .freq(800_000)
         .dma(10)
         .channel(
@@ -22,12 +22,12 @@ fn main() {
                 .brightness(127) // default: 255
                 .build(),
         )
-        .build().unwrap();
+        .build().unwrap();*/
 
     let mut hue: f64 = 0.0;
 
     loop {
-        let leds = controller.leds_mut(0);
+        //let leds = controller.leds_mut(0);
 
         hue = hue + 0.01;
         if hue > 1.0 { hue = 0.0; }
@@ -35,6 +35,6 @@ fn main() {
         let color_rgba = palette::RgbHue::from_degrees(hue);
         println!("{:?}", color_rgba);
 
-        controller.render().unwrap();
+        //controller.render().unwrap();
     }
 }
