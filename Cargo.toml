@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 rs_ws281x = "0.4.4"
 tokio = "^1.21"
-color-rs = "0.7.1"
+palette = "0.6.1"
