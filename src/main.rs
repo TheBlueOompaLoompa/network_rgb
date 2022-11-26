@@ -1,6 +1,7 @@
 use rs_ws281x::{ChannelBuilder, StripType, ControllerBuilder};
 use tokio;
-use palette;
+
+//use colors_transform::{Rgb, Color};
 
 fn main() {
     let mut led_count = std::env::args().nth(1).unwrap_or("-1".to_string()).parse().expect("Failed to parse number of leds!");
@@ -10,7 +11,7 @@ fn main() {
         led_count = 10;
     }
 
-    /*let mut controller = ControllerBuilder::new()
+    let mut controller = ControllerBuilder::new()
         .freq(800_000)
         .dma(10)
         .channel(
@@ -22,19 +23,23 @@ fn main() {
                 .brightness(127) // default: 255
                 .build(),
         )
-        .build().unwrap();*/
+        .build().unwrap();
 
-    let mut hue: f64 = 0.0;
+    //let mut hue: f32 = 0.0;
 
     loop {
-        //let leds = controller.leds_mut(0);
+        let leds = controller.leds_mut(0);
 
-        hue = hue + 0.01;
-        if hue > 1.0 { hue = 0.0; }
+        /*hue = hue + 0.01;
+        if hue > 359.00 { hue = 0.0; }*/
 
-        let color_rgba = palette::LinSrgba::new(255u8, 0u8, 0u8, 255u8);
-        println!("{},{},{}", color_rgba.red, color_rgba.green, color_rgba.blue);
+        /*let color = Rgb::from(255.0, 0.0, 0.0);
+        color.set_hue(hue);*/
 
-        //controller.render().unwrap();
+        //println!("{:?}", color.as_tuple());
+
+        leds.fill([255, 255, 255, 255]);
+
+        controller.render().unwrap();
     }
 }
