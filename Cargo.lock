@@ -59,6 +59,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "delay"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8546bb2c80129c9c85cd2b44e160b917f34a8b7ce9f3af675502cf9960e33d62"
+
+[[package]]
 name = "glob"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -98,6 +104,7 @@ checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 name = "network_rgb"
 version = "0.1.0"
 dependencies = [
+ "delay",
  "rs_ws281x",
  "tokio",
 ]

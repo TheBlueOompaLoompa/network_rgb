@@ -1,5 +1,6 @@
 use rs_ws281x::{ChannelBuilder, StripType, ControllerBuilder};
 use tokio;
+use delay::{self, Delay};
 
 //use colors_transform::{Rgb, Color};
 
@@ -20,7 +21,7 @@ fn main() {
                 .pin(18) // GPIO 10 = SPI0 MOSI
                 .count(led_count) // Number of LEDs
                 .strip_type(StripType::Ws2811Gbr)
-                .brightness(127) // default: 255
+                .brightness(80) // default: 255
                 .build(),
         )
         .build().unwrap();
